@@ -3,11 +3,11 @@
 session_start();
 
 
-/* if (isset($_SESSION['usuario'])) {
+if (isset($_SESSION['usuario'])) {
     header('Location: index.php');
     exit();
 }
- */
+
 $error_message = "";
 
 if ($_POST) {
@@ -40,14 +40,14 @@ if ($_POST) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <form action="" method="post">
+<body class="d-flex justify-content-center vh-100 align-items-center">
+    <form method="post" class="d-flex flex-column align-items-center col-6 p-4">
         <label for="nome">Nome</label> <br>
-        <input type="text" name="nome" id="nome">
+        <input type="text" name="nome" id="nome" class="col-4">
         <br><br>
         <label for="senha">senha</label> <br>
-        <input type="password" name="senha" id="senha"> <br>
-        <button name="add" type="submit">Enviar</button>
+        <input type="password" name="senha" id="senha" class="col-4"> <br>
+        <button name="add" type="submit" class="col-4">Enviar</button>
     </form>
     <?= $error_message ?>
 </body>

@@ -27,6 +27,9 @@ if (!isset($_SESSION['usuario'])) {
             <div class="container p-3 col-5 bg-primary" onclick="location.href='produtos.php'">produtos</div>
             <div class="container p-3 col-5 bg-secundary "onclick="location.href='armazem.php'">armazém</div>
         </div>
+        <div>
+            <button onclick="location.href='logout.php'">Logout</button>
+        </div>
     </main>
     
 
