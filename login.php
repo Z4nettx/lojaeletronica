@@ -15,8 +15,9 @@ if ($_POST) {
 
     $nome = $_POST['nome'];
     $senha = $_POST['senha'];
+    $tipo = $_POST['tipo'];
 
-    $sql = "SELECT * FROM usuario WHERE nome = '$nome' AND senha = '$senha'";
+    $sql = "SELECT * FROM usuario WHERE nome = '$nome' AND senha = '$senha' and tipo = '$tipo'";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
@@ -25,7 +26,7 @@ if ($_POST) {
         header("Location: index.php");
         exit();
     } else {
-        $error_message = "mano, nao foi encontrado nada com esse nome";
+        $error_message = "mano, nao foi encontrado nada com esse nome, ou senha ou tipo.";
     }
     
     
@@ -47,7 +48,13 @@ if ($_POST) {
         <br><br>
         <label for="senha">senha</label> <br>
         <input type="password" name="senha" id="senha" class="col-4"> <br>
-        <button name="add" type="submit" class="col-4">Enviar</button>
+        <select name="tipo" id="tipo" class="col-4">
+            <option value="" selected disabled>Selecione</option>
+            <option value="usuario">Usuário</option>
+            <option value="admin">Admin</option>
+        </select>
+        <button name="add" type="submit" class="col-4 mt-3 btn btn-primary">Enviar</button>
+        <button type="button" class="col-4 mt-3 btn btn-info" onclick="location.href='cadastro.php'">Não tem uma conta ainda?</button>
     </form>
     <?= $error_message ?>
 </body>

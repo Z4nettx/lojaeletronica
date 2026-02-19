@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 12, 2026 at 02:44 AM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.0.30
+-- Tempo de geração: 19/02/2026 às 02:03
+-- Versão do servidor: 10.4.32-MariaDB
+-- Versão do PHP: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `basico`
+-- Banco de dados: `basico`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `produtos`
+-- Estrutura para tabela `produtos`
 --
 
 CREATE TABLE `produtos` (
@@ -36,14 +36,14 @@ CREATE TABLE `produtos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `produtos`
+-- Despejando dados para a tabela `produtos`
 --
 
 INSERT INTO `produtos` (`ID`, `nome`, `preco`, `estoque`, `categoria`) VALUES
-(1, 'Teclado Mecânico', 250, 10, 'Periféricos'),
-(2, 'Mouse G405', 300, 5, 'Periféricos'),
+(1, 'Teclado Mecânico', 250, 8, 'Periféricos'),
+(2, 'Mouse G405', 300, 2, 'Periféricos'),
 (3, 'Monitor Gamer 165hz', 660, 2, 'Tecnologia Geral'),
-(4, 'Fone mega gamer', 100, 150, 'Periféricos'),
+(4, 'Fone mega gamer', 100, 137, 'Periféricos'),
 (5, 'Luminária ', 250, 12, 'Eletrônicos'),
 (6, 'Teclado Mecanico', 250, 10, 'Periféricos'),
 (7, 'Mouse G405', 300, 5, 'Periféricos'),
@@ -54,53 +54,57 @@ INSERT INTO `produtos` (`ID`, `nome`, `preco`, `estoque`, `categoria`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `usuario`
+-- Estrutura para tabela `usuario`
 --
 
 CREATE TABLE `usuario` (
   `ID` int(11) NOT NULL,
   `nome` varchar(100) NOT NULL,
-  `senha` varchar(50) NOT NULL
+  `senha` varchar(50) NOT NULL,
+  `tipo` enum('usuario','admin') DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `usuario`
+-- Despejando dados para a tabela `usuario`
 --
 
-INSERT INTO `usuario` (`ID`, `nome`, `senha`) VALUES
-(1, 'eduardo', 'eduardo123');
+INSERT INTO `usuario` (`ID`, `nome`, `senha`, `tipo`) VALUES
+(1, 'eduardo', 'eduardo123', 'admin'),
+(2, '', '', ''),
+(3, '', '', ''),
+(4, 'admin', 'admin123', 'admin');
 
 --
--- Indexes for dumped tables
+-- Índices para tabelas despejadas
 --
 
 --
--- Indexes for table `produtos`
+-- Índices de tabela `produtos`
 --
 ALTER TABLE `produtos`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Indexes for table `usuario`
+-- Índices de tabela `usuario`
 --
 ALTER TABLE `usuario`
   ADD PRIMARY KEY (`ID`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT para tabelas despejadas
 --
 
 --
--- AUTO_INCREMENT for table `produtos`
+-- AUTO_INCREMENT de tabela `produtos`
 --
 ALTER TABLE `produtos`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT for table `usuario`
+-- AUTO_INCREMENT de tabela `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
